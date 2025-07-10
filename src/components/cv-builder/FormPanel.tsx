@@ -100,7 +100,7 @@ export const FormPanel: React.FC<FormPanelProps> = ({ cvData, updateCVData }) =>
   };
 
   return (
-    <div className="w-1/2 border-r bg-background/50">
+    <div className="w-full md:w-1/2 border-r bg-background/50">
       <div className="p-6 border-b">
         <h2 className="text-2xl font-bold text-foreground">Build Your CV</h2>
         <p className="text-sm text-muted-foreground mt-1">

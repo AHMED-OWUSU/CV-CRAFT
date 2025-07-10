@@ -33,6 +33,7 @@ const CVBuilder = () => {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showTemplateSelector, setShowTemplateSelector] = useState(false);
+  const [showPreviewMobile, setShowPreviewMobile] = useState(false);
 
   const updateCVData = (section: keyof CVData, data: any) => {
     setCvData(prev => ({
@@ -65,9 +66,36 @@ const CVBuilder = () => {
           </div>
         </div>
       ) : (
-        <div className="flex h-[calc(100vh-4rem)]">
-          <FormPanel cvData={cvData} updateCVData={updateCVData} />
-          <PreviewPanel cvData={cvData} />
+        <div className="flex flex-col md:flex-row h-[calc(100vh-4rem)]">
+          {/* Mobile: Show only one panel at a time */}
+          <div className={`block md:hidden w-full h-full`}>
+            {showPreviewMobile ? (
+              <>
+                <button
+                  className="m-4 px-4 py-2 bg-primary text-white rounded shadow"
+                  onClick={() => setShowPreviewMobile(false)}
+                >
+                  Back to Edit
+                </button>
+                <PreviewPanel cvData={cvData} />
+              </>
+            ) : (
+              <>
+                <button
+                  className="m-4 px-4 py-2 bg-primary text-white rounded shadow"
+                  onClick={() => setShowPreviewMobile(true)}
+                >
+                  Preview CV
+                </button>
+                <FormPanel cvData={cvData} updateCVData={updateCVData} />
+              </>
+            )}
+          </div>
+          {/* Desktop: Show both panels side by side */}
+          <div className="hidden md:flex w-full h-full">
+            <FormPanel cvData={cvData} updateCVData={updateCVData} />
+            <PreviewPanel cvData={cvData} />
+          </div>
         </div>
       )}
     </div>

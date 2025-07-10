@@ -43,7 +43,7 @@ export const PreviewPanel: React.FC<PreviewPanelProps> = ({ cvData }) => {
   };
 
   return (
-    <div className="w-1/2 bg-muted/30">
+    <div className="w-full md:w-1/2 bg-muted/30">
       <div className="p-6 border-b bg-background/50">
         <h2 className="text-2xl font-bold text-foreground">Live Preview</h2>
         <p className="text-sm text-muted-foreground mt-1">
