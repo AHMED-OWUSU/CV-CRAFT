@@ -8,7 +8,7 @@ interface ModernTemplateProps {
 }
 
 export const ModernTemplate: React.FC<ModernTemplateProps> = ({ cvData }) => {
-  const { personalInfo, summary, education, experience, skills, otherWorks, achievements } = cvData;
+  const { personalInfo, summary, education, experience, skills, otherWorks, achievements, languages } = cvData;
 
   return (
     <div className="w-[210mm] min-h-[297mm] bg-white shadow-2xl">
@@ -180,6 +180,20 @@ export const ModernTemplate: React.FC<ModernTemplateProps> = ({ cvData }) => {
               {skills.map((skill) => (
                 <Badge key={skill.id} className="bg-blue-100 text-blue-800 border-blue-200">
                   {skill.name} ({skill.level})
+                </Badge>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Languages Section */}
+        {languages && languages.length > 0 && (
+          <div className="space-y-3">
+            <h2 className="text-xl font-bold text-blue-600">Languages</h2>
+            <div className="flex flex-wrap gap-2">
+              {languages.map((lang) => (
+                <Badge key={lang.id} className="bg-green-100 text-green-800 border-green-200">
+                  {lang.name} ({lang.proficiency})
                 </Badge>
               ))}
             </div>

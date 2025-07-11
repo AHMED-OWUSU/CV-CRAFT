@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,6 +14,34 @@ interface AchievementsFormProps {
 }
 
 export const AchievementsForm: React.FC<AchievementsFormProps> = ({ data, onChange }) => {
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const sampleAchievements = [
+    {
+      title: "Employee of the Year",
+      description: "Recognized for outstanding performance and dedication to team success.",
+      date: "2023",
+      category: "Professional"
+    },
+    {
+      title: "Dean's List",
+      description: "Achieved academic excellence for three consecutive years.",
+      date: "2022",
+      category: "Academic"
+    },
+    {
+      title: "Top Sales Performer",
+      description: "Exceeded sales targets by 30% and led the team in new client acquisitions.",
+      date: "2021",
+      category: "Professional"
+    },
+    {
+      title: "Volunteer of the Month",
+      description: "Recognized for exceptional commitment to community service initiatives.",
+      date: "2023",
+      category: "Personal"
+    }
+  ];
+
   const addAchievement = () => {
     const newAchievement: Achievement = {
       id: Date.now().toString(),
@@ -21,6 +49,15 @@ export const AchievementsForm: React.FC<AchievementsFormProps> = ({ data, onChan
       description: '',
       date: '',
       category: ''
+    };
+    onChange([...data, newAchievement]);
+  };
+
+  const addSuggestedAchievement = (achievement: typeof sampleAchievements[0]) => {
+    if (data.some(a => a.title === achievement.title && a.description === achievement.description)) return;
+    const newAchievement: Achievement = {
+      id: Date.now().toString() + Math.random().toString(36).substr(2, 5),
+      ...achievement
     };
     onChange([...data, newAchievement]);
   };
@@ -37,6 +74,27 @@ export const AchievementsForm: React.FC<AchievementsFormProps> = ({ data, onChan
 
   return (
     <div className="space-y-4">
+      <button
+        type="button"
+        className="mb-2 px-3 py-1 bg-primary text-white rounded text-sm shadow hover:bg-primary/90"
+        onClick={() => setShowSuggestions((v) => !v)}
+      >
+        Suggest Achievements
+      </button>
+      {showSuggestions && (
+        <div className="mb-2 border rounded bg-background shadow p-2 space-y-2">
+          {sampleAchievements.map((ach, idx) => (
+            <div
+              key={idx}
+              className="cursor-pointer hover:bg-yellow-100 p-2 rounded text-sm border"
+              onClick={() => addSuggestedAchievement(ach)}
+            >
+              <strong>{ach.title}</strong> <span className="text-xs text-muted-foreground">({ach.category}, {ach.date})</span>
+              <div>{ach.description}</div>
+            </div>
+          ))}
+        </div>
+      )}
       {data.map((achievement, index) => (
         <Card key={achievement.id} className="relative">
           <CardHeader className="pb-3">

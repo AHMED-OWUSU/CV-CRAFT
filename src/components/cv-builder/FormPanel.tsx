@@ -8,9 +8,10 @@ import { ExperienceForm } from './forms/ExperienceForm';
 import { SkillsForm } from './forms/SkillsForm';
 import { OtherWorksForm } from './forms/OtherWorksForm';
 import { AchievementsForm } from './forms/AchievementsForm';
+import { LanguagesForm } from './forms/LanguagesForm';
 import { CVData } from '@/types/cv-types';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronRight, User, FileText, GraduationCap, Briefcase, Star, Building, Trophy } from 'lucide-react';
+import { ChevronRight, User, FileText, GraduationCap, Briefcase, Star, Building, Trophy, Globe } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface FormPanelProps {
@@ -24,6 +25,7 @@ const sections = [
   { key: 'education', title: 'Education', icon: GraduationCap, required: true },
   { key: 'experience', title: 'Work Experience', icon: Briefcase, required: true },
   { key: 'skills', title: 'Skills', icon: Star, required: true },
+  { key: 'languages', title: 'Languages', icon: Globe, required: false },
   { key: 'otherWorks', title: 'Other Works', icon: Building, required: false },
   { key: 'achievements', title: 'Achievements', icon: Trophy, required: false },
 ];
@@ -78,6 +80,13 @@ export const FormPanel: React.FC<FormPanelProps> = ({ cvData, updateCVData }) =>
           <SkillsForm
             data={cvData.skills}
             onChange={(data) => updateCVData('skills', data)}
+          />
+        );
+      case 'languages':
+        return (
+          <LanguagesForm
+            data={cvData.languages}
+            onChange={(data) => updateCVData('languages', data)}
           />
         );
       case 'otherWorks':
