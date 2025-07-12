@@ -89,8 +89,8 @@ export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, onToggleTheme, onTem
         </Link>
 
         <div className="flex items-center space-x-3">
-          <Button variant="outline" size="sm" className="text-sm" onClick={onTemplateSelect}>
-            <Layout className="w-4 h-4 mr-2" />
+          <Button variant="outline" size="sm" className="text-sm border-gray-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800" onClick={onTemplateSelect}>
+            <Layout className="w-4 h-4 mr-2 dark:text-white" />
             Choose Template
           </Button>
           
@@ -98,9 +98,9 @@ export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, onToggleTheme, onTem
             variant="outline"
             size="sm"
             onClick={onToggleTheme}
-            className="text-sm"
+            className="text-sm border-gray-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
           >
-            {isDarkMode ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
+            {isDarkMode ? <Sun className="w-4 h-4 mr-2 text-yellow-400" /> : <Moon className="w-4 h-4 mr-2 text-blue-400" />}
             {isDarkMode ? 'Light' : 'Dark'}
           </Button>
           
