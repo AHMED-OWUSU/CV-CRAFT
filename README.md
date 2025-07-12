@@ -67,3 +67,7 @@ Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
+---
+
+© 2025 AHMED GREENS TECH. All rights reserved.
+

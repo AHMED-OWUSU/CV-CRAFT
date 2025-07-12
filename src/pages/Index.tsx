@@ -251,7 +251,7 @@ const Index = () => {
               <span className="text-xl font-bold">CVCraft</span>
             </div>
             <p className="text-gray-400">
-              Build your job-ready CV in minutes. © 2024 CVCraft. All rights reserved.
+              Build your job-ready CV in minutes. © 2025 AHMED GREENS TECH. All rights reserved.
             </p>
           </div>
         </div>

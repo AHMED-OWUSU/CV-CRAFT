@@ -88,29 +88,29 @@ export const Navbar: React.FC<NavbarProps> = ({ isDarkMode, onToggleTheme, onTem
           </span>
         </Link>
 
-        <div className="flex items-center space-x-3">
-          <Button variant="outline" size="sm" className="text-sm border-gray-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800" onClick={onTemplateSelect}>
-            <Layout className="w-4 h-4 mr-2 dark:text-white" />
-            Choose Template
+        <div className="flex items-center space-x-1 sm:space-x-3 ml-2">
+          <Button variant="outline" size="xs" className="text-xs px-2 py-1 border-gray-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800" onClick={onTemplateSelect}>
+            <Layout className="w-4 h-4 mr-1 dark:text-white" />
+            <span className="hidden xs:inline">Choose Template</span>
           </Button>
           
           <Button
             variant="outline"
-            size="sm"
+            size="xs"
             onClick={onToggleTheme}
-            className="text-sm border-gray-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
+            className="text-xs px-2 py-1 border-gray-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
           >
-            {isDarkMode ? <Sun className="w-4 h-4 mr-2 text-yellow-400" /> : <Moon className="w-4 h-4 mr-2 text-blue-400" />}
-            {isDarkMode ? 'Light' : 'Dark'}
+            {isDarkMode ? <Sun className="w-4 h-4 mr-1 text-yellow-400" /> : <Moon className="w-4 h-4 mr-1 text-blue-400" />}
+            <span className="hidden xs:inline">{isDarkMode ? 'Light' : 'Dark'}</span>
           </Button>
           
           <Button 
-            size="sm" 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm"
+            size="xs" 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-xs px-2 py-1"
             onClick={handleExportPDF}
           >
-            <FileDown className="w-4 h-4 mr-2" />
-            Export PDF
+            <FileDown className="w-4 h-4 mr-1" />
+            <span className="hidden xs:inline">Export PDF</span>
           </Button>
         </div>
       </div>

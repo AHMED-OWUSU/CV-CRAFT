@@ -72,7 +72,7 @@ const CVBuilder = () => {
             {showPreviewMobile ? (
               <>
                 <button
-                  className="m-4 px-4 py-2 bg-primary text-white rounded shadow"
+                  className="m-4 px-4 py-2 bg-primary text-white rounded shadow dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"
                   onClick={() => setShowPreviewMobile(false)}
                 >
                   Back to Edit
@@ -82,7 +82,7 @@ const CVBuilder = () => {
             ) : (
               <>
                 <button
-                  className="m-4 px-4 py-2 bg-primary text-white rounded shadow"
+                  className="m-4 px-4 py-2 bg-primary text-white rounded shadow dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"
                   onClick={() => setShowPreviewMobile(true)}
                 >
                   Preview CV
